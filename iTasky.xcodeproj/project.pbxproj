@@ -1,0 +1,603 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		378F09A7283A2FC30002E7C7 /* iTaskyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378F09A6283A2FC30002E7C7 /* iTaskyApp.swift */; };
+		378F09A9283A2FC30002E7C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378F09A8283A2FC30002E7C7 /* ContentView.swift */; };
+		378F09AB283A2FC60002E7C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378F09AA283A2FC60002E7C7 /* Assets.xcassets */; };
+		378F09AE283A2FC60002E7C7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378F09AD283A2FC60002E7C7 /* Preview Assets.xcassets */; };
+		378F09B0283A2FC60002E7C7 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378F09AF283A2FC60002E7C7 /* Persistence.swift */; };
+		378F09B3283A2FC60002E7C7 /* iTasky.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 378F09B1283A2FC60002E7C7 /* iTasky.xcdatamodeld */; };
+		378F09BD283A2FC70002E7C7 /* iTaskyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378F09BC283A2FC70002E7C7 /* iTaskyTests.swift */; };
+		378F09C7283A2FC70002E7C7 /* iTaskyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378F09C6283A2FC70002E7C7 /* iTaskyUITests.swift */; };
+		378F09C9283A2FC70002E7C7 /* iTaskyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378F09C8283A2FC70002E7C7 /* iTaskyUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		378F09B9283A2FC70002E7C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 378F099B283A2FC30002E7C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 378F09A2283A2FC30002E7C7;
+			remoteInfo = iTasky;
+		};
+		378F09C3283A2FC70002E7C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 378F099B283A2FC30002E7C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 378F09A2283A2FC30002E7C7;
+			remoteInfo = iTasky;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		378F09A3283A2FC30002E7C7 /* iTasky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTasky.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		378F09A6283A2FC30002E7C7 /* iTaskyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTaskyApp.swift; sourceTree = "<group>"; };
+		378F09A8283A2FC30002E7C7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		378F09AA283A2FC60002E7C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		378F09AD283A2FC60002E7C7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		378F09AF283A2FC60002E7C7 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		378F09B2283A2FC60002E7C7 /* iTasky.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iTasky.xcdatamodel; sourceTree = "<group>"; };
+		378F09B8283A2FC70002E7C7 /* iTaskyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTaskyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		378F09BC283A2FC70002E7C7 /* iTaskyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTaskyTests.swift; sourceTree = "<group>"; };
+		378F09C2283A2FC70002E7C7 /* iTaskyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTaskyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		378F09C6283A2FC70002E7C7 /* iTaskyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTaskyUITests.swift; sourceTree = "<group>"; };
+		378F09C8283A2FC70002E7C7 /* iTaskyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTaskyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		378F09A0283A2FC30002E7C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		378F09B5283A2FC70002E7C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		378F09BF283A2FC70002E7C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		378F099A283A2FC30002E7C7 = {
+			isa = PBXGroup;
+			children = (
+				378F09A5283A2FC30002E7C7 /* iTasky */,
+				378F09BB283A2FC70002E7C7 /* iTaskyTests */,
+				378F09C5283A2FC70002E7C7 /* iTaskyUITests */,
+				378F09A4283A2FC30002E7C7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		378F09A4283A2FC30002E7C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				378F09A3283A2FC30002E7C7 /* iTasky.app */,
+				378F09B8283A2FC70002E7C7 /* iTaskyTests.xctest */,
+				378F09C2283A2FC70002E7C7 /* iTaskyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		378F09A5283A2FC30002E7C7 /* iTasky */ = {
+			isa = PBXGroup;
+			children = (
+				378F09A6283A2FC30002E7C7 /* iTaskyApp.swift */,
+				378F09A8283A2FC30002E7C7 /* ContentView.swift */,
+				378F09AA283A2FC60002E7C7 /* Assets.xcassets */,
+				378F09AF283A2FC60002E7C7 /* Persistence.swift */,
+				378F09B1283A2FC60002E7C7 /* iTasky.xcdatamodeld */,
+				378F09AC283A2FC60002E7C7 /* Preview Content */,
+			);
+			path = iTasky;
+			sourceTree = "<group>";
+		};
+		378F09AC283A2FC60002E7C7 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				378F09AD283A2FC60002E7C7 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		378F09BB283A2FC70002E7C7 /* iTaskyTests */ = {
+			isa = PBXGroup;
+			children = (
+				378F09BC283A2FC70002E7C7 /* iTaskyTests.swift */,
+			);
+			path = iTaskyTests;
+			sourceTree = "<group>";
+		};
+		378F09C5283A2FC70002E7C7 /* iTaskyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				378F09C6283A2FC70002E7C7 /* iTaskyUITests.swift */,
+				378F09C8283A2FC70002E7C7 /* iTaskyUITestsLaunchTests.swift */,
+			);
+			path = iTaskyUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		378F09A2283A2FC30002E7C7 /* iTasky */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 378F09CC283A2FC70002E7C7 /* Build configuration list for PBXNativeTarget "iTasky" */;
+			buildPhases = (
+				378F099F283A2FC30002E7C7 /* Sources */,
+				378F09A0283A2FC30002E7C7 /* Frameworks */,
+				378F09A1283A2FC30002E7C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iTasky;
+			productName = iTasky;
+			productReference = 378F09A3283A2FC30002E7C7 /* iTasky.app */;
+			productType = "com.apple.product-type.application";
+		};
+		378F09B7283A2FC70002E7C7 /* iTaskyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 378F09CF283A2FC70002E7C7 /* Build configuration list for PBXNativeTarget "iTaskyTests" */;
+			buildPhases = (
+				378F09B4283A2FC70002E7C7 /* Sources */,
+				378F09B5283A2FC70002E7C7 /* Frameworks */,
+				378F09B6283A2FC70002E7C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				378F09BA283A2FC70002E7C7 /* PBXTargetDependency */,
+			);
+			name = iTaskyTests;
+			productName = iTaskyTests;
+			productReference = 378F09B8283A2FC70002E7C7 /* iTaskyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		378F09C1283A2FC70002E7C7 /* iTaskyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 378F09D2283A2FC70002E7C7 /* Build configuration list for PBXNativeTarget "iTaskyUITests" */;
+			buildPhases = (
+				378F09BE283A2FC70002E7C7 /* Sources */,
+				378F09BF283A2FC70002E7C7 /* Frameworks */,
+				378F09C0283A2FC70002E7C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				378F09C4283A2FC70002E7C7 /* PBXTargetDependency */,
+			);
+			name = iTaskyUITests;
+			productName = iTaskyUITests;
+			productReference = 378F09C2283A2FC70002E7C7 /* iTaskyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		378F099B283A2FC30002E7C7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					378F09A2283A2FC30002E7C7 = {
+						CreatedOnToolsVersion = 13.4;
+					};
+					378F09B7283A2FC70002E7C7 = {
+						CreatedOnToolsVersion = 13.4;
+						TestTargetID = 378F09A2283A2FC30002E7C7;
+					};
+					378F09C1283A2FC70002E7C7 = {
+						CreatedOnToolsVersion = 13.4;
+						TestTargetID = 378F09A2283A2FC30002E7C7;
+					};
+				};
+			};
+			buildConfigurationList = 378F099E283A2FC30002E7C7 /* Build configuration list for PBXProject "iTasky" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 378F099A283A2FC30002E7C7;
+			productRefGroup = 378F09A4283A2FC30002E7C7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				378F09A2283A2FC30002E7C7 /* iTasky */,
+				378F09B7283A2FC70002E7C7 /* iTaskyTests */,
+				378F09C1283A2FC70002E7C7 /* iTaskyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		378F09A1283A2FC30002E7C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				378F09AE283A2FC60002E7C7 /* Preview Assets.xcassets in Resources */,
+				378F09AB283A2FC60002E7C7 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		378F09B6283A2FC70002E7C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		378F09C0283A2FC70002E7C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		378F099F283A2FC30002E7C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				378F09B3283A2FC60002E7C7 /* iTasky.xcdatamodeld in Sources */,
+				378F09B0283A2FC60002E7C7 /* Persistence.swift in Sources */,
+				378F09A9283A2FC30002E7C7 /* ContentView.swift in Sources */,
+				378F09A7283A2FC30002E7C7 /* iTaskyApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		378F09B4283A2FC70002E7C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				378F09BD283A2FC70002E7C7 /* iTaskyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		378F09BE283A2FC70002E7C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				378F09C7283A2FC70002E7C7 /* iTaskyUITests.swift in Sources */,
+				378F09C9283A2FC70002E7C7 /* iTaskyUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		378F09BA283A2FC70002E7C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 378F09A2283A2FC30002E7C7 /* iTasky */;
+			targetProxy = 378F09B9283A2FC70002E7C7 /* PBXContainerItemProxy */;
+		};
+		378F09C4283A2FC70002E7C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 378F09A2283A2FC30002E7C7 /* iTasky */;
+			targetProxy = 378F09C3283A2FC70002E7C7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		378F09CA283A2FC70002E7C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		378F09CB283A2FC70002E7C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		378F09CD283A2FC70002E7C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"iTasky/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.axondragonscale.iTasky;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		378F09CE283A2FC70002E7C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"iTasky/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.axondragonscale.iTasky;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		378F09D0283A2FC70002E7C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.axondragonscale.iTaskyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTasky.app/iTasky";
+			};
+			name = Debug;
+		};
+		378F09D1283A2FC70002E7C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.axondragonscale.iTaskyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTasky.app/iTasky";
+			};
+			name = Release;
+		};
+		378F09D3283A2FC70002E7C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.axondragonscale.iTaskyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iTasky;
+			};
+			name = Debug;
+		};
+		378F09D4283A2FC70002E7C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.axondragonscale.iTaskyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iTasky;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		378F099E283A2FC30002E7C7 /* Build configuration list for PBXProject "iTasky" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				378F09CA283A2FC70002E7C7 /* Debug */,
+				378F09CB283A2FC70002E7C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		378F09CC283A2FC70002E7C7 /* Build configuration list for PBXNativeTarget "iTasky" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				378F09CD283A2FC70002E7C7 /* Debug */,
+				378F09CE283A2FC70002E7C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		378F09CF283A2FC70002E7C7 /* Build configuration list for PBXNativeTarget "iTaskyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				378F09D0283A2FC70002E7C7 /* Debug */,
+				378F09D1283A2FC70002E7C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		378F09D2283A2FC70002E7C7 /* Build configuration list for PBXNativeTarget "iTaskyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				378F09D3283A2FC70002E7C7 /* Debug */,
+				378F09D4283A2FC70002E7C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		378F09B1283A2FC60002E7C7 /* iTasky.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				378F09B2283A2FC60002E7C7 /* iTasky.xcdatamodel */,
+			);
+			currentVersion = 378F09B2283A2FC60002E7C7 /* iTasky.xcdatamodel */;
+			path = iTasky.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 378F099B283A2FC30002E7C7 /* Project object */;
+}
