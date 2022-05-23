@@ -87,7 +87,7 @@ struct Home: View {
     @ViewBuilder
     func TaskListView() -> some View {
         LazyVStack(spacing: 20) {
-            ForEach(tasks) { task in
+            FilteredTaskListView(currentTab: taskViewModel.currentTab) { (task: Task) in
                 TaskRowView(task: task)
             }
         }
@@ -108,7 +108,7 @@ struct Home: View {
                 
                 Spacer()
                 
-                if !task.isCompleted {
+                if !task.isCompleted && taskViewModel.currentTab != "Failed" {
                     Button(action: {
                         taskViewModel.editTask = task
                         taskViewModel.setupTask()
@@ -142,7 +142,7 @@ struct Home: View {
                 .font(.caption)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
-                if !task.isCompleted {
+                if !task.isCompleted && taskViewModel.currentTab != "Failed" {
                     Button(action: {
                         task.isCompleted.toggle()
                         try? env.managedObjectContext.save()
@@ -165,9 +165,9 @@ struct Home: View {
     
     @ViewBuilder
     func SegregatedSelectionTabBar() -> some View {
-        let tabs = ["Today", "Upcoming", "Completed"] // TODO: Tabs should probably be an enum
+        let tabs = ["Today", "Upcoming", "Completed", "Failed"] // TODO: Tabs should probably be an enum
         
-        HStack(spacing: 10) {
+        HStack(spacing: 8) {
             ForEach(tabs, id: \.self) { tab in
                 Text(tab)
                     .font(.callout)

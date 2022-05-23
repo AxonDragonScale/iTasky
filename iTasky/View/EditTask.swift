@@ -26,6 +26,20 @@ struct EditTask: View {
                             .foregroundColor(.black)
                     }
                 }
+                .overlay(alignment: .trailing) {
+                    Button(action: {
+                        if let editTask = taskViewModel.editTask {
+                            env.managedObjectContext.delete(editTask)
+                            try? env.managedObjectContext.save()
+                            env.dismiss()
+                        }
+                    }) {
+                        Image(systemName: "trash")
+                            .font(.title3)
+                            .foregroundColor(.red)
+                    }
+                    .opacity(taskViewModel.editTask == nil ? 0 : 1)
+                }
             
             VStack(alignment: .leading, spacing: 12) {
                 Text("Task Color")
@@ -128,7 +142,7 @@ struct EditTask: View {
             }
             
             Divider()
-                .padding(.vertical, 10)
+                .padding(.vertical, 14)
             
             VStack {
                 Spacer()
