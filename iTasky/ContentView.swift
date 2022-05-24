@@ -12,7 +12,7 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            Home()
+            HomeView()
                 .navigationBarTitle("iTasky")
                 .navigationBarTitleDisplayMode(.inline)
         }

@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct Home: View {
+struct HomeView: View {
     
     @Environment(\.self) var env
     
-    @StateObject var taskViewModel: TaskViewModel = .init()
+    @StateObject var viewModel: ViewModel = ViewModel()
     @Namespace var animation
     
     @FetchRequest(
@@ -44,7 +44,7 @@ struct Home: View {
         }
         .overlay(alignment: .bottom) {
             Button(action: {
-                taskViewModel.showEditTask.toggle()
+                viewModel.showEditTask.toggle()
             }) {
                 Label(title: {
                     Text("Add Task")
@@ -75,19 +75,18 @@ struct Home: View {
             }
         }
         .fullScreenCover(
-            isPresented: $taskViewModel.showEditTask,
+            isPresented: $viewModel.showEditTask,
             onDismiss: {
-                taskViewModel.resetTask()
+                viewModel.taskToEdit = nil
             }, content: {
-                EditTask()
-                    .environmentObject(taskViewModel)
+                EditTaskView(taskToEdit: viewModel.taskToEdit)
             })
     }
     
     @ViewBuilder
     func TaskListView() -> some View {
         LazyVStack(spacing: 20) {
-            FilteredTaskListView(currentTab: taskViewModel.currentTab) { (task: Task) in
+            FilteredTaskListView(currentTab: viewModel.currentTab) { (task: Task) in
                 TaskRowView(task: task)
             }
         }
@@ -108,11 +107,10 @@ struct Home: View {
                 
                 Spacer()
                 
-                if !task.isCompleted && taskViewModel.currentTab != "Failed" {
+                if !task.isCompleted && viewModel.currentTab != .Failed {
                     Button(action: {
-                        taskViewModel.editTask = task
-                        taskViewModel.setupTask()
-                        taskViewModel.showEditTask = true
+                        viewModel.taskToEdit = task
+                        viewModel.showEditTask = true
                     }) {
                         Image(systemName: "square.and.pencil")
                             .foregroundColor(.black)
@@ -142,7 +140,7 @@ struct Home: View {
                 .font(.caption)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
-                if !task.isCompleted && taskViewModel.currentTab != "Failed" {
+                if !task.isCompleted && viewModel.currentTab != .Failed {
                     Button(action: {
                         task.isCompleted.toggle()
                         try? env.managedObjectContext.save()
@@ -159,25 +157,22 @@ struct Home: View {
         .frame(maxWidth: .infinity)
         .background {
             RoundedRectangle(cornerRadius: 12, style: .continuous)
-                .fill(Color(task.color ?? "Yellow"))
+                .fill(Color(task.color ?? TaskColor.Yellow.rawValue))
         }
     }
     
     @ViewBuilder
     func SegregatedSelectionTabBar() -> some View {
-        let tabs = ["Today", "Upcoming", "Completed", "Failed"] // TODO: Tabs should probably be an enum
-        
-        HStack(spacing: 8) {
-            ForEach(tabs, id: \.self) { tab in
-                Text(tab)
+        HStack {
+            ForEach(Tab.allCases, id: \.self) { tab in
+                Text(tab.rawValue)
                     .font(.callout)
                     .fontWeight(.semibold)
-                    .scaleEffect(0.9)
-                    .foregroundColor(taskViewModel.currentTab == tab ? .white : .black)
-                    .padding(.vertical, 6)
-                    .frame(maxWidth: .infinity)
+                    .scaleEffect(0.8)
+                    .foregroundColor(viewModel.currentTab == tab ? .white : .black)
+                    .padding(8)
                     .background {
-                        if taskViewModel.currentTab == tab {
+                        if viewModel.currentTab == tab {
                             Capsule()
                                 .fill(.black)
                                 .matchedGeometryEffect(id: "TAB", in: animation)
@@ -186,7 +181,7 @@ struct Home: View {
                     .contentShape(Capsule())
                     .onTapGesture {
                         withAnimation {
-                            taskViewModel.currentTab = tab
+                            viewModel.currentTab = tab
                         }
                     }
             }
@@ -194,7 +189,7 @@ struct Home: View {
     }
 }
 
-struct Home_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }

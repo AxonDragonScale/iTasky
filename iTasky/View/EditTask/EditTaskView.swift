@@ -7,12 +7,18 @@
 
 import SwiftUI
 
-struct EditTask: View {
-    
-    @EnvironmentObject var taskViewModel: TaskViewModel
+struct EditTaskView: View {
+        
+    @Namespace var animation
     @Environment(\.self) var env
     
-    @Namespace var animation
+    private var taskToEdit: Task?
+    @ObservedObject private var viewModel: ViewModel
+    
+    init(taskToEdit: Task?) {
+        self.taskToEdit = taskToEdit
+        self.viewModel = ViewModel(taskToEdit: self.taskToEdit)
+    }
     
     var body: some View {
         VStack {
@@ -36,11 +42,11 @@ struct EditTask: View {
         .padding()
         .overlay {
             ZStack {
-                if taskViewModel.showDatePicker {
+                if viewModel.showDatePicker {
                     DatePickerView()
                 }
             }
-            .animation(.easeInOut, value: taskViewModel.showDatePicker)
+            .animation(.easeInOut, value: viewModel.showDatePicker)
         }
     }
     
@@ -58,8 +64,8 @@ struct EditTask: View {
             }
             .overlay(alignment: .trailing) {
                 Button(action: {
-                    if let editTask = taskViewModel.editTask {
-                        env.managedObjectContext.delete(editTask)
+                    if let taskToEdit = taskToEdit {
+                        env.managedObjectContext.delete(taskToEdit)
                         try? env.managedObjectContext.save()
                         env.dismiss()
                     }
@@ -68,7 +74,7 @@ struct EditTask: View {
                         .font(.title3)
                         .foregroundColor(.red)
                 }
-                .opacity(taskViewModel.editTask == nil ? 0 : 1)
+                .opacity(taskToEdit == nil ? 0 : 1)
             }
     }
     
@@ -79,14 +85,13 @@ struct EditTask: View {
                 .font(.caption)
                 .foregroundColor(.gray)
             
-            let colors = ["Yellow", "Green", "Blue", "Purple", "Red", "Orange"] // TODO: Move to model/constants class
             HStack(spacing: 15) {
-                ForEach(colors, id: \.self) { color in
+                ForEach(TaskColor.allCases, id: \.self) { color in
                     Circle()
-                        .fill(Color(color))
+                        .fill(Color(color.rawValue))
                         .frame(width: 25, height: 25)
                         .background {
-                            if taskViewModel.taskColor == color {
+                            if viewModel.taskColor == color {
                                 Circle()
                                     .strokeBorder(.gray, lineWidth: 1.1)
                                     .padding(-3)
@@ -94,7 +99,7 @@ struct EditTask: View {
                         }
                         .contentShape(Circle())
                         .onTapGesture {
-                            taskViewModel.taskColor = color
+                            viewModel.taskColor = color
                         }
                 }
             }
@@ -115,7 +120,7 @@ struct EditTask: View {
                 .font(.caption)
                 .foregroundColor(.gray)
             
-            Text(taskViewModel.taskDeadline.formatted(date: .abbreviated, time: .shortened))
+            Text(viewModel.taskDeadline.formatted(date: .abbreviated, time: .shortened))
                 .font(.callout)
                 .fontWeight(.semibold)
                 .padding(.top, 10)
@@ -123,7 +128,7 @@ struct EditTask: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .overlay(alignment: .bottomTrailing) {
             Button(action: {
-                taskViewModel.showDatePicker = true
+                viewModel.showDatePicker = true
             }) {
                 Image(systemName: "calendar")
                     .foregroundColor(.black)
@@ -141,7 +146,7 @@ struct EditTask: View {
                 .font(.caption)
                 .foregroundColor(.gray)
             
-            TextField("Title", text: $taskViewModel.taskTitle)
+            TextField("Title", text: $viewModel.taskTitle)
                 .frame(maxWidth: .infinity)
                 .padding(.top, 8)
         }
@@ -152,21 +157,20 @@ struct EditTask: View {
     
     @ViewBuilder
     func SegmentedTaskTypeSelector() -> some View {
-        let taskTypes = ["Basic", "Urgent", "Important"]
         VStack(alignment: .leading, spacing: 12) {
             Text("Task Type")
                 .font(.caption)
                 .foregroundColor(.gray)
             
             HStack(spacing: 12) {
-                ForEach(taskTypes, id: \.self) { type in
-                    Text(type)
+                ForEach(TaskType.allCases, id: \.self) { type in
+                    Text(type.rawValue)
                         .font(.callout)
                         .padding(.vertical, 8)
                         .frame(maxWidth: .infinity)
-                        .foregroundColor(taskViewModel.taskType == type ? .white : .black)
+                        .foregroundColor(viewModel.taskType == type ? .white : .black)
                         .background {
-                            if taskViewModel.taskType == type {
+                            if viewModel.taskType == type {
                                 Capsule()
                                     .fill(.black)
                                     .matchedGeometryEffect(id: "TYPE", in: animation)
@@ -177,7 +181,7 @@ struct EditTask: View {
                         }
                         .contentShape(Capsule())
                         .onTapGesture {
-                            withAnimation { taskViewModel.taskType = type }
+                            withAnimation { viewModel.taskType = type }
                         }
                 }
             }
@@ -191,7 +195,7 @@ struct EditTask: View {
     @ViewBuilder
     func CapsuleSaveButton() -> some View {
         Button(action: {
-            if taskViewModel.addTask(context: env.managedObjectContext) {
+            if viewModel.addTask(context: env.managedObjectContext) {
                 env.dismiss()
             }
         }) {
@@ -206,8 +210,8 @@ struct EditTask: View {
                         .fill(.black)
                 }
                 .padding(.bottom, 10)
-                .disabled(taskViewModel.taskTitle == "")
-                .opacity(taskViewModel.taskTitle == "" ? 0.6 : 1)
+                .disabled(viewModel.taskTitle == "")
+                .opacity(viewModel.taskTitle == "" ? 0.6 : 1)
         }
     }
     
@@ -217,12 +221,12 @@ struct EditTask: View {
             .fill(.ultraThinMaterial)
             .ignoresSafeArea()
             .onTapGesture {
-                taskViewModel.showDatePicker = false
+                viewModel.showDatePicker = false
             }
         
         DatePicker.init(
             "",
-            selection: $taskViewModel.taskDeadline,
+            selection: $viewModel.taskDeadline,
             in: Date.now...Date.distantFuture
         )
         .datePickerStyle(.graphical)
@@ -233,9 +237,8 @@ struct EditTask: View {
     }
 }
 
-struct EditTask_Previews: PreviewProvider {
+struct EditTaskView_Previews: PreviewProvider {
     static var previews: some View {
-        EditTask()
-            .environmentObject(TaskViewModel())
+        EditTaskView(taskToEdit: nil)
     }
 }

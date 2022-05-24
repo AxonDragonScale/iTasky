@@ -13,27 +13,27 @@ struct FilteredTaskListView<Content: View, T>: View where T: NSManagedObject {
     @FetchRequest private var request: FetchedResults<T>
     let content: (T) -> Content
     
-    init(currentTab: String, @ViewBuilder content: @escaping (T) -> Content) {
+    init(currentTab: Tab, @ViewBuilder content: @escaping (T) -> Content) {
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: Date())
         let tomorrow = calendar.date(byAdding: .day, value: 1, to: today)!
         var predicate: NSPredicate!
-        if currentTab == "Today" {
+        if currentTab == .Today {
             predicate = NSPredicate(
                 format: "deadline >= %@ AND deadline < %@ AND isCompleted == %i",
                 argumentArray: [today, tomorrow, 0]
             )
-        } else if currentTab == "Upcoming" {
+        } else if currentTab == .Upcoming {
             predicate = NSPredicate(
                 format: "deadline >= %@ AND deadline < %@ AND isCompleted == %i",
                 argumentArray: [tomorrow, Date.distantFuture, 0]
             )
-        } else if currentTab == "Failed" {
+        } else if currentTab == .Failed {
             predicate = NSPredicate(
                 format: "deadline >= %@ AND deadline < %@ AND isCompleted == %i",
                 argumentArray: [Date.distantPast, today, 0]
             )
-        } else if currentTab == "Completed" {
+        } else if currentTab == .Completed {
             predicate = NSPredicate(
                 format: "isCompleted == %i",
                 argumentArray: [1]
